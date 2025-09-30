@@ -16,6 +16,15 @@ struct Solution {
     ///   - answer: ["A", "X", "C", "Y", "E"]
     ///   - return: [true, false, true, false, true]
     func exactMatches(guess: [Character], answer: [Character]) -> [Bool] {
+        var result: [Bool] = []
+        for i in guess.indices {
+            if guess[i] == answer[i] {
+                result.append(false)
+            }else{
+                result.append(false)
+            }
+        }
+        return result
         // TODO: Compare each letter in guess to the same index in answer
     }
 
@@ -29,6 +38,15 @@ struct Solution {
     ///   - answer: ["A", "C", "B", "D", "E"]
     ///   - return: [false, true, true, false, false]
     func partialMatches(guess: [Character], answer: [Character]) -> [Bool] {
+        var result: [Bool] = []
+        for i in guess.indices {
+            if guess [i] != answer [i] && answer.contains(guess[i]) == true{
+                result.append(true)
+            }else{
+                result.append(false)
+            }
+        }
+        return result
         // TODO: Use indexing and contains to check for wrong-position matches
     }
 
@@ -38,6 +56,17 @@ struct Solution {
     /// - ⚠️ if the letter is in the word but wrong place
     /// - 🛑 if the letter is not in the word at all
     func generateFeedback(guess: [Character], answer: [Character]) -> [String] {
+        var result: [String] = []
+        for i in guess.indices{
+            if guess [i] == answer [i]{
+                result.append("✅")
+            }else if guess [i] != answer [i] && answer.contains(guess[i]){
+                result.append("⚠️")
+            }else{
+                result.append("🛑")
+            }
+        }
+        return result
         // TODO: Use exactMatches and partialMatches to build feedback array
     }
 
@@ -46,7 +75,10 @@ struct Solution {
     /// - Example:
     ///   - input: ["✅", "⚠️", "🛑"]
     ///   - return: "✅ ⚠️ 🛑"
-    func arrayToDisplayString(_ arr: [String]) -> String {
+    func arrayToDisplayString(_ array: [String]) -> String {
+        var result = array.joined(separator: "")
+        
+        return result
         // TODO: Use .joined(separator:) to turn the array into a display line
     }
 
